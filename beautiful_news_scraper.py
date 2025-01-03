@@ -63,3 +63,19 @@ def generate_report(dataframe):
     plt.savefig(graph_path, dpi=300)  # Salva a imagem com alta resolução
     print(f"Gráfico salvo como {graph_path}.")
     plt.show()  # Exibe o gráfico na tela
+
+# Ponto de entrada principal do script
+if __name__ == "__main__":
+    try:
+        print("Coletando dados do Hacker News...")
+        # Coleta os dados do Hacker News
+        data = fetch_hacker_news_data()
+        print("Dados coletados com sucesso!")
+        
+        print("Gerando relatório e gráfico...")
+        # Gera o relatório e o gráfico
+        generate_report(data)
+        print("Processo concluído!")
+    except Exception as e:
+        # Exibe uma mensagem de erro, caso algo dê errado
+        print(f"Erro ao executar o script: {e}")
